@@ -2,7 +2,7 @@ const userModel = require('../models/userModel')
 const bcrypt = require('bcrypt')
 module.exports = {
     postSignup: async (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         try {
             const { username, email, password } = req.body
             const exisistUser = await userModel.findOne({ email })
@@ -25,6 +25,7 @@ module.exports = {
     },
     postLogin:async(req,res)=>{
         const {email,password} = req.body
+        // console.log(req.body);
         const exisistUser = await userModel.findOne({ email })
         if(!exisistUser){
             return res.json('User does not exist ')
